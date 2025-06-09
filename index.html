@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Den & Yin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #f9f7fe, #e8f4f8);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        
+        .cover {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f6ff"/><path d="M20,20 Q40,5 60,20 T100,20 Q85,40 100,60 T100,100 Q60,85 20,100 T0,100 Q5,60 0,20 T20,20Z" fill="%23e8f4f8" opacity="0.6"/></svg>');
+            background-size: cover;
+        }
+        
+        .bismillah {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #8e6e53;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .invited-text {
+            font-size: 20px;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        
+        .photo-container {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto;
+            border: 8px solid rgba(183, 110, 121, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            background: linear-gradient(45deg, #e8d6d9, #d1e8e2);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #f5e6e8, #e0f0e7);
+        }
+        
+        .photo-placeholder::before {
+            content: "Foto Cover";
+            color: #b76e79;
+            font-size: 18px;
+            font-weight: bold;
+            opacity: 0.7;
+        }
+        
+        .names {
+            margin: 30px 0;
+            font-family: 'Great Vibes', cursive;
+            font-size: 60px;
+            color: #b76e79;
+            line-height: 1.2;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .open-btn {
+            background: linear-gradient(135deg, #b76e79, #a05a65);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .open-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.6);
+        }
+        
+        .invitation-content {
+            display: none;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(183, 110, 121, 0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b76e79;
+            font-size: 20px;
+        }
+        
+        .invitation-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            color: #b76e79;
+            margin-bottom: 30px;
+        }
+        
+        .details {
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+        
+        .detail-item {
+            margin: 20px 0;
+        }
+        
+        .detail-title {
+            font-weight: bold;
+            color: #8e6e53;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .map-container {
+            height: 200px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b76e79;
+            font-weight: bold;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #888;
+            font-style: italic;
+            font-size: 16px;
+        }
+        
+        .ornament {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .ornament-1 {
+            top: 20px;
+            right: 20px;
+            font-size: 80px;
+            transform: rotate(15deg);
+        }
+        
+        .ornament-2 {
+            bottom: 20px;
+            left: 20px;
+            font-size: 60px;
+            transform: rotate(-10deg);
+        }
+        
+        @media (max-width: 600px) {
+            .cover {
+                min-height: 500px;
+            }
+            
+            .photo-container {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .names {
+                font-size: 50px;
+            }
+            
+            .invitation-title {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cover" id="cover">
+            <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+            <div class="invited-text">You are invited to the Wedding of</div>
+            
+            <div class="photo-container">
+                <div class="photo-placeholder"></div>
+            </div>
+            
+            <div class="names">Den & Yin</div>
+            
+            <button class="open-btn" onclick="openInvitation()">Open the Invitation</button>
+            
+            <div class="ornament ornament-1">❦</div>
+            <div class="ornament ornament-2">✿</div>
+        </div>
+        
+        <div class="invitation-content" id="invitationContent">
+            <button class="back-btn" onclick="goBack()">←</button>
+            
+            <h1 class="invitation-title">Undangan Pernikahan</h1>
+            
+            <div class="names" style="font-size: 50px; margin: 10px 0 30px;">Den & Yin</div>
+            
+            <div class="details">
+                <div class="detail-item">
+                    <div class="detail-title">Tanggal & Waktu</div>
+                    <div>Sabtu, 15 Juli 2023</div>
+                    <div>Pukul 10:00 WIB - Selesai</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-title">Tempat</div>
+                    <div>Grand Ballroom Hotel Majestic</div>
+                    <div>Jalan Kemang Raya No. 25, Jakarta Selatan</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-title">Acara</div>
+                    <div>Akad Nikah & Resepsi</div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                [Peta Lokasi Akan Ditampilkan di Sini]
+            </div>
+            
+            <div class="footer">
+                "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, 
+                supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang." 
+                (QS. Ar-Rum: 21)
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openInvitation() {
+            document.getElementById('cover').style.display = 'none';
+            document.getElementById('invitationContent').style.display = 'block';
+        }
+        
+        function goBack() {
+            document.getElementById('invitationContent').style.display = 'none';
+            document.getElementById('cover').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
